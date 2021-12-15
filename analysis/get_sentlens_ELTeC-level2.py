@@ -52,9 +52,12 @@ def main():
     """
     Coordinates the process. 
     """
-    dataset = "ELTeC-eng_level2"
-    folder = join(dataset, "data", "ENG*.xml")
-    datafile = join(dataset, "results", "avgsentlens.csv")
+    dataset = "ELTeC-deu_level2"
+    folder = join("..", "corpora", dataset, "texts", "DEU*.xml")
+    resultsfolder = join("..", "results", dataset, "")
+    datafile = join(resultsfolder, "avgsentlens.csv")
+    if not os.path.exists(resultsfolder): 
+        os.makedirs(resultsfolder)
     data = {}
     for xmlfile in glob.glob(folder): 
         basename,ext = re.split("\.", os.path.basename(xmlfile))

@@ -29,6 +29,7 @@ def read_data(datafile):
 def plot_seaborn(data, dataset, filename): 
     regplot = sns.regplot(x="year", y="avgsentlen", marker=".", data=data, x_jitter=0.3, order=3, color="#117b99", scatter_kws={"color": "#117b99"}, line_kws={"color": "#00264D"}).set_title("Average sentence length per novel in " + dataset)
     fig = regplot.get_figure()
+    plt.ylim(0, 60)
     plt.grid()
     fig.savefig(filename, dpi=600)
     
@@ -65,6 +66,7 @@ def main():
     """
     # Dataset
     dataset = "Gutenberg-sample3"
+    #dataset = "ELTeC-eng_level2"
     # Files, folders, data container
     datafile = join("..", "results", dataset, "avgsentlens.csv")
     metadatafile = join("..", "corpora", dataset + "_metadata.csv")

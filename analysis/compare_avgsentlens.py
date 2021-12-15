@@ -53,14 +53,16 @@ def filter_data(data, comparison, samplesize):
 
 def plot_seaborn(comparison, vals1, vals2, med1, med2, filename, samplesize, p): 
     # Labels
+    if p < 0.00001: 
+        pval = "<0.00001"
+    else: 
+        pval = '{0:.5f}'.format(p)
     title="Comparison of average sentence length distributions"
-    xlabel="Average sentence length\n(samplesize="+str(samplesize)+", p="+'{0:.10f}'.format(p)+")"
+    xlabel="Average sentence length\n(samplesize="+str(samplesize)+", p="+pval+")"
     ylabel="Density (KDE)"
     plot = sns.displot([vals1, vals2], kind="kde", fill=True, rug=True)
     plot.set(xlabel=xlabel, ylabel=ylabel, title=title)
-    #regplot = sns.regplot(x="year", y="avgsentlen", marker=".", data=data, x_jitter=0.3, order=3, color="#117b99", scatter_kws={"color": "#117b99"}, line_kws={"color": "#00264D"}).set_title("Average sentence length per novel in " + dataset)
-    #fig = plot.get_figure()
-    #plt.grid()
+    plt.xlim(0, 70)
     plot.savefig(filename, dpi=600)
     
 
@@ -84,9 +86,10 @@ def main():
     Coordinates the process. 
     """
     # Parameters
-    dataset = "Gutenberg-sample3"
+    #dataset = "Gutenberg-sample3"
+    dataset = "ELTeC-hun_level2"
     comparison = [(1840,1859), (1900,1919)]
-    samplesize = 250
+    samplesize = 20
     # Files, folders, data container
     datafile = join("..", "results", dataset, "avgsentlens.csv")
     filename_dists = join("..", "results", dataset, "comparison_"+str(comparison[0][0]) + "-" + str(comparison[0][1])+"-vs-"+str(comparison[1][0]) + "-" + str(comparison[1][1])+".png")
