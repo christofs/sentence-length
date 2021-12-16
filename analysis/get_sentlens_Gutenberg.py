@@ -70,7 +70,7 @@ def main():
     Coordinates the process. 
     """
     # Datasets
-    dataset = "Gutenberg-sample3"
+    dataset = "Gutenberg-sample2b"
     # spaCy setup
     nlp = eng()
     nlp.add_pipe("sentencizer")

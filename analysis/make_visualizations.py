@@ -65,7 +65,7 @@ def main():
     Coordinates the process. 
     """
     # Dataset
-    dataset = "Gutenberg-sample3"
+    dataset = "Gutenberg-sample2b"
     #dataset = "ELTeC-eng_level2"
     # Files, folders, data container
     datafile = join("..", "results", dataset, "avgsentlens.csv")

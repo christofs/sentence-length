@@ -84,13 +84,13 @@ def copy_subset(datasample, origdir, destdir):
 def main(): 
     # Parameters
     fictionmetadatafilename = join("..", "..", "gutenberg-fiction", "metadata-fiction+worldcat+heuristics+fixes.csv")
-    dataset = "Gutenberg-sample3"
+    dataset = "Gutenberg-sample2b"
     origdir = join("..", "..", "gutenberg-fiction", "text", "")
     destdir = join("..", "..", "gutenberg-samples", dataset, "texts", "")
     samplemetadatafilename = join("..", "corpora", dataset +"_metadata.csv")
-    samplesize = 4200
+    samplesize = 1200
     timeframe = [1820,1940]
-    sampletype = "overall" # "overall"|"decades"
+    sampletype = "decades" # "overall"|"decades"
     if not os.path.exists(destdir): 
         os.makedirs(destdir)
     # Create sample

@@ -86,10 +86,10 @@ def main():
     Coordinates the process. 
     """
     # Parameters
-    #dataset = "Gutenberg-sample3"
-    dataset = "ELTeC-hun_level2"
-    comparison = [(1840,1859), (1900,1919)]
-    samplesize = 20
+    dataset = "Gutenberg-sample2b"
+    #dataset = "ELTeC-hun_level2"
+    comparison = [(1820,1839), (1920,1939)]
+    samplesize = 100
     # Files, folders, data container
     datafile = join("..", "results", dataset, "avgsentlens.csv")
     filename_dists = join("..", "results", dataset, "comparison_"+str(comparison[0][0]) + "-" + str(comparison[0][1])+"-vs-"+str(comparison[1][0]) + "-" + str(comparison[1][1])+".png")
