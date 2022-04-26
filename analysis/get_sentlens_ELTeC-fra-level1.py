@@ -82,9 +82,10 @@ def main():
     """
     # Files, folders, data containers
     dataset = "ELTeC-fra_level1"
-    textfolder = join("..", "data", dataset, "texts", "FRA*.xml")
-    sentlenfile = join("..", "results", dataset, "avgsentlens.csv")
-    metadatafile = join("..", "data", dataset, "metadata.csv")
+    textfolder = join("corpora", dataset, "texts", "FRA*.xml")
+    sentlenfile = join("results", dataset, "avgsentlens.csv")
+    metadatafile = join("corpora", dataset, "metadata.csv")
+    print(textfolder)
     language = "fra"
     if not os.path.exists(join("..", "results", dataset, "")): 
         os.makedirs(join("..", "results", dataset, ""))
